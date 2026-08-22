@@ -26,7 +26,7 @@ func ClassifyOutcome(err error) string {
 	if err == nil {
 		return "ok"
 	}
-	if err == ErrRetryable {
+	if errors.Is(err, ErrRetryable) {
 		return "retry"
 	}
 	return "terminal"
